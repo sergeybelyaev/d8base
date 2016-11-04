@@ -3,7 +3,12 @@ global-styling:
   css:
     theme:
       css/main.css: {}
+#      css/custom.css: {}
   js:
     js/jquery.main.js: {}
+#    js/jquery.custom.js: {}
   dependencies:
     - core/jquery
+#    - core/drupal
+#    - core/jquery.once
+#    - core/drupalSettings
