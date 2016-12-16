@@ -1,7 +1,7 @@
-(function($, Drupal, drupalSettings) {
+(function($) {
   Drupal.behaviors.customBehavior = {
-    attach: function (context, settings) {
+    attach: function(context, settings) {
       // alert('Test');
     }
   };
-})(jQuery, Drupal, drupalSettings);
+})(jQuery);
