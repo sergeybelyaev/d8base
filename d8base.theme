@@ -15,3 +15,12 @@ function d8base_theme_suggestions_block_alter(array &$suggestions, array $variab
     array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
   }
 }
+
+/**
+* Implements hook_form_alter()
+*/
+function d8base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ('search_block_form' == $form_id) {
+    $form['keys']['#attributes']['placeholder'][] = t('Search');
+  }
+}
