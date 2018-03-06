@@ -24,3 +24,18 @@ function d8base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_st
     $form['keys']['#attributes']['placeholder'][] = t('Search');
   }
 }
+
+function d8base_preprocess_page(&$variables) {
+  //$variables['copyright'] = theme_get_setting('copyright');
+  /*$fid_mobile_logo = theme_get_setting('mobile_logo');
+  if ($fid_mobile_logo) {
+    if (is_array($fid_mobile_logo)) {
+      $fid_mobile_logo = reset($fid_mobile_logo);
+    }
+    $file = \Drupal\file\Entity\File::load((int) $fid_mobile_logo);
+    try {
+      $variables['mobile_logo'] = file_create_url($file->getFileUri());
+    } catch ( \Error $e ) {
+    }
+  }*/
+}
