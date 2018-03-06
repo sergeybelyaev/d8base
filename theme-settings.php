@@ -18,9 +18,13 @@
 	  '#upload_location' => 'public://',
 	];
 	$form['#submit'][] = 'd8base_form_system_theme_settings_submit';
-}
-  
-function d8base_form_system_theme_settings_submit($form, &$form_state) {
+}*/
+
+/**
+ * @param $form
+ * @param \Drupal\Core\Form\FormState $form_state
+ */
+/*function d8base_form_system_theme_settings_submit($form, &$form_state) {
 	if ($form_state->hasValue('mobile_logo')) {
 	  // Load the file via file.fid.
 	  $fid_mobile_logo = $form_state->getValue('mobile_logo');
