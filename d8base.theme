@@ -39,3 +39,24 @@ function d8base_preprocess_page(&$variables) {
     }
   }*/
 }
+
+function d8base_preprocess_html(&$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  switch ($route_name) {
+    case 'system.401':
+      // Unauthorized Access.
+      $error = 401;
+      $variables['attributes']['class'][] = 'page-unauthorized-access';
+      break;
+    case 'system.403':
+      // Access Denied.
+      $error = 403;
+      $variables['attributes']['class'][] = 'page-access-denied';
+      break;
+    case 'system.404':
+      // Page Not Found.
+      $error = 404;
+      $variables['attributes']['class'][] = 'page-not-found';
+      break;
+  }
+}
