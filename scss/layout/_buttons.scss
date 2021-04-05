@@ -1,0 +1,10 @@
+.btn {
+	@extend %inline-block;
+	@include font($btn-font-size, $bth-line-height);
+	border-radius: $btn-border-radius;
+	font-weight: $btn-font-weight;
+	background: $btn-background;
+	padding: $btn-padding;
+	color: $btn-color;
+	text-decoration: none;
+}
