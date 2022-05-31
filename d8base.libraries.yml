@@ -6,4 +6,5 @@ global-styling:
   js:
     js/jquery.main.js: {}
   dependencies:
+    - core/drupal
     - core/jquery
