@@ -1,72 +1,12 @@
 <?php
 
-use Drupal\block\Entity\Block;
-use Drupal\Core\Form\FormStateInterface;
-
 /**
- * Implements hook_theme_suggestions_HOOK_alter().
+ * @file
+ * Theme functions.
  */
-function d8base_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  if (($node = \Drupal::routeMatch()->getParameter('node')) && is_object($node)) {
-    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
-  }
-}
 
-function d8base_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-  if (isset($variables['elements']['content']['#block_content'])) {
-    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
-  }
-  // Region suggestion for blocks in Drupal.
-  if (isset($variables['elements']['#id'])) {
-    if ($block = Block::load($variables["elements"]["#id"])) {
-      $region = $block->getRegion();
-      // block--REGION_ID.html.twig
-      $suggestions[] = 'block__' . $region;
-      // block--REGION_ID--CUSTOM_BLOCK_ID.html.twig
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
-      // block--REGION_ID--MY_BLOCK_ID.html.twig
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
-      // block--REGION_ID--MY_BLOCK_ID--CUSTOM_BLOCK_ID.html.twig
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#id'];
-    }
-  }
-}
-
-/**
-* Implements hook_form_alter()
-*/
-function d8base_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ('search_block_form' == $form_id) {
-    static $search_block_form_counter = 1;
-    $form['keys']['#attributes']['placeholder'][] = t('Search');
-    if ($search_block_form_counter == 1) {
-      $form['keys']['#attributes']['accesskey'][] = 4;
-    }
-    $search_block_form_counter++;
-  }
-}
-
-function d8base_preprocess_page(&$variables) {
-  $variables['copyright'] = theme_get_setting('copyright');
-}
-
-function d8base_preprocess_html(&$variables) {
-  $route_name = \Drupal::routeMatch()->getRouteName();
-  switch ($route_name) {
-    case 'system.401':
-      // Unauthorized Access.
-      $error = 401;
-      $variables['attributes']['class'][] = 'page-unauthorized-access';
-      break;
-    case 'system.403':
-      // Access Denied.
-      $error = 403;
-      $variables['attributes']['class'][] = 'page-access-denied';
-      break;
-    case 'system.404':
-      // Page Not Found.
-      $error = 404;
-      $variables['attributes']['class'][] = 'page-not-found';
-      break;
-  }
+// * Include all files from the includes directory.
+$includes_path = dirname(__FILE__) . '/includes/*.inc';
+foreach (glob($includes_path) as $filename) {
+  require_once dirname(__FILE__) . '/includes/' . basename($filename);
 }
