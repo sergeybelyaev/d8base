@@ -5,8 +5,6 @@ module.exports = {
     cssMainFileDir:   'css/',
     cssMainFileName:  'main',
     jsDir:            'js/',
-    imgDir:           'images/',
-    imgSourceDir:     'sourceimages/',
 	browserSyncUrl:   'siteurl.test',
 
     // sftp server

@@ -16,7 +16,7 @@ var PathConfig = require('./grunt-settings.js');
     clean: {
       options: { force: true },
       temp: {
-        src: ["<%= config.cssDir %>**/*.map", "<%= config.imgDir %>", "<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css.map", "./jpgtmp.jpg"]
+        src: ["<%= config.cssDir %>**/*.map", "<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css.map", "./jpgtmp.jpg"]
       }
     },
 
