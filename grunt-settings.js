@@ -7,6 +7,7 @@ module.exports = {
     jsDir:            'js/',
     imgDir:           'images/',
     imgSourceDir:     'sourceimages/',
+	browserSyncUrl:   'siteurl.test',
 
     // sftp server
     sftpServer:       'example.com',
