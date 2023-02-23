@@ -1,7 +1,7 @@
 name: Drupal 8/9 Base
 type: theme
 description: Drupal 8/9 Base Theme.
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 base theme: classy
 libraries:
   - d8base/global-styling
@@ -16,3 +16,6 @@ regions:
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
   footer: 'Footer'
+
+dependencies:
+  - classy:classy
