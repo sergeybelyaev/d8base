@@ -1,7 +1,7 @@
-/*(function ($, Drupal) {
+/*(function ($, Drupal, once) {
   Drupal.behaviors.myModuleBehavior = {
     attach: function (context, settings) {
       //
     }
   };
-})(jQuery, Drupal);*/
+})(jQuery, Drupal, once);*/
